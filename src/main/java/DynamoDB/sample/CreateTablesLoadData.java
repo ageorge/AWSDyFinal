@@ -25,8 +25,8 @@ import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
 
 public class CreateTablesLoadData {
 
-    static DynamoDB dynamoDB = new DynamoDB(new AmazonDynamoDBClient(
-            new ProfileCredentialsProvider()));
+     static DynamoDB dynamoDB = new DynamoDB((AmazonDynamoDB) new AmazonDynamoDBClient(
+         new ProfileCredentialsProvider()).withRegion(Regions.EU_CENTRAL_1));
 
     static SimpleDateFormat dateFormatter = new SimpleDateFormat(
             "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
