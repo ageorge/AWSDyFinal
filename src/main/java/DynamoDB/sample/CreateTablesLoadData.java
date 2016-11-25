@@ -22,19 +22,19 @@ import com.amazonaws.services.dynamodbv2.model.LocalSecondaryIndex;
 import com.amazonaws.services.dynamodbv2.model.Projection;
 import com.amazonaws.services.dynamodbv2.model.ProjectionType;
 import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
+import com.amazonaws.regions.Regions;
 
 public class CreateTablesLoadData {
-
-     static DynamoDB dynamoDB = new DynamoDB((AmazonDynamoDB) new AmazonDynamoDBClient(
-         new ProfileCredentialsProvider()).withRegion(Regions.EU_CENTRAL_1));
+	static AmazonDynamoDBClient client = new AmazonDynamoDBClient(new ProfileCredentialsProvider()).withRegion(Regions.EU_CENTRAL_1);
+     static DynamoDB dynamoDB = new DynamoDB(client);
 
     static SimpleDateFormat dateFormatter = new SimpleDateFormat(
             "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
 
-    static String productCatalogTableName = "ProductCatalog";
-    static String forumTableName = "Forum";
-    static String threadTableName = "Thread";
-    static String replyTableName = "Reply";
+    static String productCatalogTableName = "ProductCatalog-a";
+    static String forumTableName = "Forum-a";
+    static String threadTableName = "Thread-a";
+    static String replyTableName = "Reply-a";
 
     public static void main(String[] args) throws Exception {
 
